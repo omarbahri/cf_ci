@@ -1,0 +1,5 @@
+ResNet check results and train final for uninfluenced
+VAE? CHECK RESULTS
+otherwise AE
+Code
+Use VAE or NB or other for metric
