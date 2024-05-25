@@ -39,6 +39,9 @@ def _energy(loc, vel, edges, interaction_strength):
     
     return energy_train
 
+# target_ball = int(sys.argv[1])
+target_ball = 4
+
 interaction_strength = 0.1
 
 n_balls = 5
@@ -53,8 +56,9 @@ else:
     _s = '_s' + str(train_size)
     
 name = '_springs' + str(n_balls) + _s + '_uninfluenced_oneconnect'
-    
-output_dir = os.path.join('data', name)
+
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),'../..'))    
+output_dir = os.path.join(root_dir, 'cf_ci', 'scripts', 'data', name)
 
 loc_train = np.load(os.path.join(output_dir, 'loc_train.npy'))
 edges_train = np.load(os.path.join(output_dir, 'edges_train.npy'))
@@ -79,9 +83,9 @@ print(np.std(energy_train.reshape(-1)))
 thres = 0.3 #around mean + std
 
 # Extract the final energies of the ball at index 0 for each simulation
-final_energies_0_train = energy_train[:, -1, 0]  # Extract final energies for the ball at index 0
-final_energies_0_valid = energy_valid[:, -1, 0]  # Extract final energies for the ball at index 0
-final_energies_0_test = energy_test[:, -1, 0]  # Extract final energies for the ball at index 0
+final_energies_0_train = energy_train[:, -1, target_ball]  # Extract final energies for the ball at index target_ball
+final_energies_0_valid = energy_valid[:, -1, target_ball]  # Extract final energies for the ball at index target_ball
+final_energies_0_test = energy_test[:, -1, target_ball]  # Extract final energies for the ball at index target_ball
 
 # Create the binary variable by comparing the final energies with the threshold
 final_energy_0_0_train = final_energies_0_train > thres
@@ -104,12 +108,15 @@ X_valid = X_valid.reshape(-1, 20, 49)  # Shape will be (1000, 49, 10)
 X_test = X_test.reshape(-1, 20, 49)  # Shape will be (1000, 49, 10)
 
 dataset_path = os.path.abspath(os.path.join(os.path.dirname(__file__),'../../..',
-                                        'Datasets', 'ci', 'particles_spring', name))
+                                    'Datasets', 'ci', 'particles_spring', name))
 
+# sys.exit()
+
+if target_ball != 0:
+    dataset_path = dataset_path + '_' + str(target_ball)
+    
 if not os.path.exists(dataset_path):
     os.makedirs(dataset_path)
-    
-# sys.exit()
 
 np.save(os.path.join(dataset_path, 'X_train.npy'), X_train)
 np.save(os.path.join(dataset_path, 'y_train.npy'), y_train)
@@ -117,6 +124,8 @@ np.save(os.path.join(dataset_path, 'X_valid.npy'), X_valid)
 np.save(os.path.join(dataset_path, 'y_valid.npy'), y_valid)
 np.save(os.path.join(dataset_path, 'X_test.npy'), X_test)
 np.save(os.path.join(dataset_path, 'y_test.npy'), y_test)
+
+sys.exit()
 
 from sktime.transformations.panel.rocket import Rocket
 from sklearn.pipeline import make_pipeline

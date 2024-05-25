@@ -1,5 +1,6 @@
-ResNet check results and train final for uninfluenced
-VAE? CHECK RESULTS
+Other dataset with 2 uninfluenced
+ResNet for up
+VAE? TimeVAE?
 otherwise AE
 Code
 Use VAE or NB or other for metric

@@ -16,8 +16,10 @@ import pandas as pd
 import time
 
 tf.config.run_functions_eagerly(True)
+
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),'../..'))
     
-results_path = os.path.join(os.sep, 'data', 'Omar', 'shapelet_aug', 'results', 
+results_path = os.path.join(os.sep, root_dir, 'shapelet_aug', 'results', 
                             'ci', 'particles_spring')
 
 name = sys.argv[1]
@@ -25,15 +27,13 @@ seed = int(sys.argv[2])
 lr = float(sys.argv[3])
 nb_epochs = int(sys.argv[4])
 
-data_path = os.path.join(os.sep, 'data', 'Omar', 'particles_spring',
-                         'data', name) 
+data_path = os.path.join(root_dir, 'cf_ci', 'data', name) 
 
 random.seed(seed)
 np.random.seed(seed)
 tf.random.set_seed(seed)
 
-output_csv_path = os.path.join(results_path, 
-           'particles_spring_resnetval_f1macro_' + str(seed) + '.csv')
+output_csv_path = os.path.join(results_path, 'particles_spring_resnetval_f1macro_' + str(seed) + '.csv')
     
 try:    
     output_csv = pd.read_csv(output_csv_path, header=None)
@@ -155,7 +155,7 @@ def reset_tf_graph():
         tf.Session().close()
 
 # set the dimensionality of the latent space to a plane for visualization later
-latent_dim = 2
+latent_dim = 16
 num_examples_to_generate = 16
 
 # keeping the random vector constant for generation (prediction) so
@@ -165,7 +165,8 @@ random_vector_for_generation = tf.random.normal(
    
 overall_best_elbo = -np.inf
 
-for lr in np.arange(0.0001, 0.01, 0.0003):
+# for lr in np.arange(0.0001, 0.001, 0.0003):
+for lr in [0.0001]:
     print('lr', lr)
     
     # reset_tf_graph()

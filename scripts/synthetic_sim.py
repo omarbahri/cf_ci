@@ -6,7 +6,6 @@ import time
 from matplotlib.animation import FuncAnimation
 import matplotlib.animation as animation
 
-
 class SpringSim(object):
     def __init__(
         self,
@@ -164,6 +163,9 @@ class SpringSim(object):
             vel_next[:, -1] = vel_fixed
 
         loc[0, :, :], vel[0, :, :] = self._clamp(loc_next, vel_next)
+        
+        # print('first', loc[0])
+        # print(loc[-1])
 
         # disables division by zero warning, since I fix it with fill_diagonal
         with np.errstate(divide="ignore"):
@@ -202,6 +204,7 @@ class SpringSim(object):
 
                 if i % sample_freq == 0:
                     loc[counter, :, :], vel[counter, :, :] = loc_next, vel_next
+                    # print('cnt', counter)
                     counter += 1
 
                 forces_size = -self.interaction_strength * edges
@@ -227,6 +230,11 @@ class SpringSim(object):
             # Add noise to observations
             loc += np.random.randn(T_save, 2, self.n_balls) * self.noise_var
             vel += np.random.randn(T_save, 2, self.n_balls) * self.noise_var
+            
+            
+            # print('last', loc[0])
+            # print(loc[-1])
+            # print(loc[48])
             return loc, vel, edges
 
 def init():
