@@ -1,6 +1,12 @@
-Other dataset with 2 uninfluenced
-ResNet for up
-VAE? TimeVAE?
+ResNet for total change
+VAE? (Looks like it's working, CHECK) TimeVAE? 
 otherwise AE
 Code
 Use VAE or NB or other for metric
+
+
+
+
+
+CVAE uninfluenced2 0.0002
+     Uninfluenced 0.0006

@@ -117,6 +117,7 @@ class SpringSim(object):
 
         if uninfluenced:
             edges[-1, :] = 0
+            edges[-2, :] = 0
 
             # print(loc_fixed, vel_fixed)
         return edges

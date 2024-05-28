@@ -12,7 +12,6 @@ import sys
 from cvae import CVAE
 import tensorflow as tf
 import random
-import pandas as pd
 import time
 
 tf.config.run_functions_eagerly(True)
@@ -32,19 +31,6 @@ data_path = os.path.join(root_dir, 'cf_ci', 'data', name)
 random.seed(seed)
 np.random.seed(seed)
 tf.random.set_seed(seed)
-
-output_csv_path = os.path.join(results_path, 'particles_spring_resnetval_f1macro_' + str(seed) + '.csv')
-    
-try:    
-    output_csv = pd.read_csv(output_csv_path, header=None)
-except Exception:
-    print('Gonna create this file later')
-    
-try:
-    if name in list(output_csv[output_csv.columns[0]]):
-        sys.exit()
-except Exception:
-    print('')
     
 # nb_epochs = 1500
 
@@ -87,7 +73,7 @@ train_size = X_train.shape[0]
 test_size = X_test.shape[0]
 valid_size = X_valid.shape[0]
 
-batch_size = 256
+batch_size = 128
 
 train_dataset = (tf.data.Dataset.from_tensor_slices(X_train)
                     .shuffle(train_size).batch(batch_size))
@@ -95,12 +81,6 @@ test_dataset = (tf.data.Dataset.from_tensor_slices(X_test)
                     .shuffle(train_size).batch(batch_size))
 valid_dataset = (tf.data.Dataset.from_tensor_slices(X_valid)
                     .shuffle(train_size).batch(batch_size))
-
-output_directory = os.path.join(results_path, name, 'resnetval',
-                'models_' + str(seed) + '_' + str(lr) + '_' + str(nb_epochs))
-
-if not os.path.exists(output_directory):
-    os.makedirs(output_directory)
 
 # X_train = X_train.reshape((X_train.shape[0], X_train.shape[2], -1))
 # X_test = X_test.reshape((X_test.shape[0], X_test.shape[2], -1))
@@ -165,8 +145,8 @@ random_vector_for_generation = tf.random.normal(
    
 overall_best_elbo = -np.inf
 
-# for lr in np.arange(0.0001, 0.001, 0.0003):
-for lr in [0.0001]:
+for lr in np.arange(0.0001, 0.0007, 0.0001):
+# for lr in [0.0001]:
     print('lr', lr)
     
     # reset_tf_graph()

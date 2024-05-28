@@ -8,8 +8,6 @@ Created on Wed May 22 20:42:21 2024
 
 import tensorflow as tf
 
-import tensorflow as tf
-
 class CVAE(tf.keras.Model):
     """Convolutional variational autoencoder."""
 
@@ -64,3 +62,9 @@ class CVAE(tf.keras.Model):
         probs = tf.sigmoid(logits)
         return probs
       return logits
+  
+    def call(self, inputs):
+        mean, logvar = self.encode(inputs)
+        z = self.reparameterize(mean, logvar)
+        return self.decode(z)
+    
