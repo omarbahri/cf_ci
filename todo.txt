@@ -9,7 +9,8 @@ Use VAE or NB or other for metric
 
 
 CVAE uninfluenced2 0.0002
-     uninfluenced 0.0006
-     
-ResNet uninfluenced2_total_movement 0.07318355299708457
-	uninfluenced_total_movement 0.02
+     Uninfluenced 0.0006
+
+
+1e-10 0
+1e-20 1
