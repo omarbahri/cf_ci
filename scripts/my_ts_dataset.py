@@ -78,10 +78,14 @@ energy_valid = _energy(loc_valid, vel_valid, edges_valid, interaction_strength)
 energy_test = _energy(loc_test, vel_test, edges_test, interaction_strength)
     
 plt.hist(energy_train.reshape(-1), bins=50, edgecolor='k', alpha=0.7)
-print(np.mean(energy_train.reshape(-1)))
-print(np.std(energy_train.reshape(-1)))
 
-thres = 0.3 #around mean + std
+u = np.mean(energy_train.reshape(-1))
+std = np.std(energy_train.reshape(-1))
+
+print(u)
+print(std)
+
+thres = u + std
 
 # Extract the final energies of the ball at index 0 for each simulation
 final_energies_0_train = energy_train[:, -1, target_ball]  # Extract final energies for the ball at index target_ball

@@ -1,0 +1,69 @@
+nohup: ignoring input
+Namespace(confounder=False, datadir='data/uninfluenced2', fixed_connectivity=True, fixed_particle=False, influencer_particle=False, length=5000, length_test=5000, n_balls=5, noise_var=0.1, num_test=10000, num_train=50000, num_valid=10000, sample_freq=100, seed=42, simulation='springs', temperature=0.1, temperature_alpha=None, temperature_dist=False, temperature_num_cats=None, undirected=False, uninfluenced_particle=True)
+_springs5_uninfluenced2_oneconnect_noise_var
+Generating 50000 training simulations
+[5;30;41mEdges are fixed to be: [0m
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 0.4269073009490967
+Iter: 100, Simulation time: 0.404360294342041
+Iter: 200, Simulation time: 0.4673621654510498
+Iter: 300, Simulation time: 0.4090118408203125
+Iter: 400, Simulation time: 0.3835904598236084
+Iter: 500, Simulation time: 0.382582426071167
+Iter: 600, Simulation time: 0.3802042007446289
+Iter: 700, Simulation time: 0.3813791275024414
+Iter: 800, Simulation time: 0.38716626167297363
+Iter: 900, Simulation time: 0.39603328704833984
+Iter: 1000, Simulation time: 0.39174556732177734
+Iter: 1100, Simulation time: 0.39342784881591797
+Iter: 1200, Simulation time: 0.43879222869873047
+Iter: 1300, Simulation time: 0.3743276596069336
+Iter: 1400, Simulation time: 0.3775475025177002
+Iter: 1500, Simulation time: 0.38398027420043945
+Iter: 1600, Simulation time: 0.3997960090637207
+Iter: 1700, Simulation time: 0.4264652729034424
+Iter: 1800, Simulation time: 0.3825531005859375
+Iter: 1900, Simulation time: 0.4575934410095215
+Iter: 2000, Simulation time: 0.3928220272064209
+Iter: 2100, Simulation time: 0.43033790588378906
+Iter: 2200, Simulation time: 0.38690972328186035
+Iter: 2300, Simulation time: 0.41730713844299316
+Iter: 2400, Simulation time: 0.4046516418457031
+Iter: 2500, Simulation time: 0.39127016067504883
+Iter: 2600, Simulation time: 0.37369728088378906
+Iter: 2700, Simulation time: 0.38315653800964355
+Iter: 2800, Simulation time: 0.3882136344909668
+Iter: 2900, Simulation time: 0.4051222801208496
+Iter: 3000, Simulation time: 0.42086243629455566
+Iter: 3100, Simulation time: 0.38925957679748535
+Iter: 3200, Simulation time: 0.38249969482421875
+Iter: 3300, Simulation time: 0.38861989974975586
+Iter: 3400, Simulation time: 0.39069056510925293
+Iter: 3500, Simulation time: 0.3733193874359131
+Iter: 3600, Simulation time: 0.387986421585083
+Iter: 3700, Simulation time: 0.39423179626464844
+Iter: 3800, Simulation time: 0.4153146743774414
+Iter: 3900, Simulation time: 0.3886754512786865
+Iter: 4000, Simulation time: 0.3895149230957031
+Iter: 4100, Simulation time: 0.38745546340942383
+Iter: 4200, Simulation time: 0.3883826732635498
+Iter: 4300, Simulation time: 0.37375354766845703
+Iter: 4400, Simulation time: 0.42981648445129395
+Iter: 4500, Simulation time: 0.4100337028503418
+Iter: 4600, Simulation time: 0.3807859420776367
+Iter: 4700, Simulation time: 0.37226104736328125
+Iter: 4800, Simulation time: 0.37566542625427246
+Iter: 4900, Simulation time: 0.3857583999633789
+Iter: 5000, Simulation time: 0.40045881271362305
+Iter: 5100, Simulation time: 0.38114118576049805
+Iter: 5200, Simulation time: 0.43224382400512695
+Iter: 5300, Simulation time: 0.40264201164245605
+Iter: 5400, Simulation time: 0.39719414710998535
+Iter: 5500, Simulation time: 0.3876934051513672
+Iter: 5600, Simulation time: 0.42055177688598633
+Iter: 5700, Simulation time: 0.37598609924316406
+Iter: 5800, Simulation time: 0.39873218536376953
