@@ -136,7 +136,7 @@ class SpringSim(object):
     ):
         n = self.n_balls
         assert T % sample_freq == 0
-        T_save = int(T / sample_freq - 1)
+        T_save = int(T / sample_freq )
         diag_mask = np.ones((n, n), dtype=bool)
         np.fill_diagonal(diag_mask, 0)
         counter = 0
@@ -192,12 +192,16 @@ class SpringSim(object):
             )  # sum over influence from different particles to get their joint force
             F[F > self._max_F] = self._max_F
             F[F < -self._max_F] = -self._max_F
-
+            
             vel_next += self._delta_T * F
             # run leapfrog
-            for i in range(1, T):
-                loc_next += self._delta_T * vel_next
+            for i in range(0, T):
+                loc_next += self._delta_T * vel_next * F>0
                 loc_next, vel_next = self._clamp(loc_next, vel_next)
+                
+                # Add noise to observations
+                loc_next += np.random.randn(2, n) * self.noise_var * F>0
+                vel_next += np.random.randn(2, n) * self.noise_var * F>0
 
                 if fixed_particle:
                     loc_next[:, -1] = loc_fixed
@@ -205,7 +209,6 @@ class SpringSim(object):
 
                 if i % sample_freq == 0:
                     loc[counter, :, :], vel[counter, :, :] = loc_next, vel_next
-                    # print('cnt', counter)
                     counter += 1
 
                 forces_size = -self.interaction_strength * edges
@@ -228,14 +231,11 @@ class SpringSim(object):
                 F[F > self._max_F] = self._max_F
                 F[F < -self._max_F] = -self._max_F
                 vel_next += self._delta_T * F
+
             # Add noise to observations
-            loc += np.random.randn(T_save, 2, self.n_balls) * self.noise_var
-            vel += np.random.randn(T_save, 2, self.n_balls) * self.noise_var
+            # loc += np.random.randn(T_save, 2, self.n_balls) * self.noise_var
+            # vel += np.random.randn(T_save, 2, self.n_balls) * self.noise_var
             
-            
-            # print('last', loc[0])
-            # print(loc[-1])
-            # print(loc[48])
             return loc, vel, edges
 
 def init():

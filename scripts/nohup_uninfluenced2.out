@@ -1,0 +1,91 @@
+Namespace(simulation='springs', num_train=5000, num_valid=1000, num_test=1000, length=5000, sample_freq=100, n_balls=5, seed=42, datadir='data/test', temperature=0.1, temperature_dist=False, temperature_alpha=None, temperature_num_cats=None, undirected=False, fixed_particle=False, influencer_particle=False, confounder=False, uninfluenced_particle=True, fixed_connectivity=True, noise_var=0.0, length_test=5000)
+_springs5_uninfluenced_s5000_oneconnect
+Generating 5000 training simulations
+[5;30;41mEdges are fixed to be: [0m
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 0.17198991775512695
+Iter: 100, Simulation time: 0.2086942195892334
+Iter: 200, Simulation time: 0.21038198471069336
+Iter: 300, Simulation time: 0.20663118362426758
+Iter: 400, Simulation time: 0.21461820602416992
+Iter: 500, Simulation time: 0.2136237621307373
+Iter: 600, Simulation time: 0.2063281536102295
+Iter: 700, Simulation time: 0.20616722106933594
+Iter: 800, Simulation time: 0.2121419906616211
+Iter: 900, Simulation time: 0.31101274490356445
+Iter: 1000, Simulation time: 0.22670793533325195
+Iter: 1100, Simulation time: 0.2098860740661621
+Iter: 1200, Simulation time: 0.22130203247070312
+Iter: 1300, Simulation time: 0.21868014335632324
+Iter: 1400, Simulation time: 0.21656394004821777
+Iter: 1500, Simulation time: 0.21626996994018555
+Iter: 1600, Simulation time: 0.23407697677612305
+Iter: 1700, Simulation time: 0.20658373832702637
+Iter: 1800, Simulation time: 0.21242713928222656
+Iter: 1900, Simulation time: 0.21565580368041992
+Iter: 2000, Simulation time: 0.21531105041503906
+Iter: 2100, Simulation time: 0.21088790893554688
+Iter: 2200, Simulation time: 0.22224712371826172
+Iter: 2300, Simulation time: 0.22301006317138672
+Iter: 2400, Simulation time: 0.21483588218688965
+Iter: 2500, Simulation time: 0.21747803688049316
+Iter: 2600, Simulation time: 0.21784090995788574
+Iter: 2700, Simulation time: 0.2117629051208496
+Iter: 2800, Simulation time: 0.2142810821533203
+Iter: 2900, Simulation time: 0.21533584594726562
+Iter: 3000, Simulation time: 0.2221686840057373
+Iter: 3100, Simulation time: 0.23360896110534668
+Iter: 3200, Simulation time: 0.22108793258666992
+Iter: 3300, Simulation time: 0.205704927444458
+Iter: 3400, Simulation time: 0.21720504760742188
+Iter: 3500, Simulation time: 0.22888803482055664
+Iter: 3600, Simulation time: 0.2607131004333496
+Iter: 3700, Simulation time: 0.21972203254699707
+Iter: 3800, Simulation time: 0.22209882736206055
+Iter: 3900, Simulation time: 0.2186276912689209
+Iter: 4000, Simulation time: 0.23199009895324707
+Iter: 4100, Simulation time: 0.22023415565490723
+Iter: 4200, Simulation time: 0.22024822235107422
+Iter: 4300, Simulation time: 0.20657706260681152
+Iter: 4400, Simulation time: 0.23253822326660156
+Iter: 4500, Simulation time: 0.22099804878234863
+Iter: 4600, Simulation time: 0.21192002296447754
+Iter: 4700, Simulation time: 0.21849298477172852
+Iter: 4800, Simulation time: 0.2193131446838379
+Iter: 4900, Simulation time: 0.21364188194274902
+Generating 1000 validation simulations
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 0.2093489170074463
+Iter: 100, Simulation time: 0.21935415267944336
+Iter: 200, Simulation time: 0.21578168869018555
+Iter: 300, Simulation time: 0.21715116500854492
+Iter: 400, Simulation time: 0.21769380569458008
+Iter: 500, Simulation time: 0.2170863151550293
+Iter: 600, Simulation time: 0.21532773971557617
+Iter: 700, Simulation time: 0.21765398979187012
+Iter: 800, Simulation time: 0.21918892860412598
+Iter: 900, Simulation time: 0.21520209312438965
+Generating 1000 test simulations
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 0.23959708213806152
+Iter: 100, Simulation time: 0.2223501205444336
+Iter: 200, Simulation time: 0.21212482452392578
+Iter: 300, Simulation time: 0.22512006759643555
+Iter: 400, Simulation time: 0.2148580551147461
+Iter: 500, Simulation time: 0.22934198379516602
+Iter: 600, Simulation time: 0.22030210494995117
+Iter: 700, Simulation time: 0.21226167678833008
+Iter: 800, Simulation time: 0.2307581901550293
+Iter: 900, Simulation time: 0.21659612655639648

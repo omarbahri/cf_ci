@@ -55,7 +55,8 @@ if train_size == '':
 else:
     _s = '_s' + str(train_size)
     
-name = '_springs' + str(n_balls) + _s + '_uninfluenced2_oneconnect'
+# name = '_springs' + str(n_balls) + _s + '_uninfluenced2_oneconnect'
+name = 'uninfluenced2/_springs5_uninfluenced_s5000_oneconnect'
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),'../..'))    
 output_dir = os.path.join(root_dir, 'cf_ci', 'scripts', 'data', name)
@@ -97,14 +98,14 @@ y_train = final_energy_0_0_train.astype(int)
 y_valid = final_energy_0_0_valid.astype(int)
 y_test = final_energy_0_0_test.astype(int)
 
-vel_train = vel_train.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 49)
-vel_valid = vel_valid.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 49)
-vel_test = vel_test.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 49)
+vel_train = vel_train.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 50)
+vel_valid = vel_valid.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 50)
+vel_test = vel_test.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 50)
 
-# Reshape loc_train to shape (50000, 2 * 5, 49)
-loc_train = loc_train.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 49)
-loc_valid = loc_valid.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 49)
-loc_test = loc_test.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 49)
+# Reshape loc_train to shape (50000, 2 * 5, 50)
+loc_train = loc_train.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 50)
+loc_valid = loc_valid.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 50)
+loc_test = loc_test.transpose(0, 3, 2, 1).reshape(-1, 2 * 5, 50)
 
 # Concatenate along the new feature axis (should be axis=1)
 X_train = np.concatenate((loc_train, vel_train), axis=1)

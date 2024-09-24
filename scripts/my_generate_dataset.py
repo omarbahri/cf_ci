@@ -109,6 +109,12 @@ def parse_args():
         default=False,
         help="Have one inherent causal structure for ALL simulations",
     )
+    parser.add_argument(
+        "--noise_var",
+        type=float,
+        default=0.0,
+        help="Noise variance.",
+    )
     args = parser.parse_args()
 
     if args.fixed_particle:
@@ -200,7 +206,7 @@ if __name__ == "__main__":
     if args.simulation == "springs":
         if not args.temperature_dist:
             sim = SpringSim(
-                noise_var=0.0,
+                noise_var=args.noise_var,
                 n_balls=args.n_balls,
                 interaction_strength=args.temperature,
             )
@@ -234,7 +240,7 @@ if __name__ == "__main__":
         suffix += "_fixed"
 
     if args.uninfluenced_particle:
-        suffix += "_uninfluenced"
+        suffix += "_uninfluenced2"
 
     if args.influencer_particle:
         suffix += "_influencer"
@@ -253,6 +259,9 @@ if __name__ == "__main__":
 
     if args.fixed_connectivity:
         suffix += "_oneconnect"
+        
+    if args.noise_var != 0.0:
+        suffix += "_noise_var"
 
     print(suffix)
 
