@@ -104,18 +104,18 @@ def simulate_eq(loc, vel, edges, interaction_strength=0.1):
     return loc, vel
 
 
-def simulate_next(loc, vel, edges, sample_freq=10, interaction_strength=0.1):
+def simulate_next(loc, vel, edges, sample_freq=100, interaction_strength=0.1):
     _delta_T = 0.001
     _max_F = 0.1 / _delta_T
     
     n = len(edges)
     
-    print('init', loc, vel)
+    # print('init', loc, vel)
         
     # loc, vel = simulate_eq(loc, vel, edges)
     loc, vel = _clamp(loc, vel)
     
-    print('eq', loc, vel)
+    # print('eq', loc, vel)
     
     # run leapfrog (-sample_freq & counter=1 because we want to keep initial state, as opposed to original code)
     # we assume that the initial state is already in equilibrium
@@ -150,20 +150,20 @@ def simulate_next(loc, vel, edges, sample_freq=10, interaction_strength=0.1):
             loc += _delta_T * vel
             loc, vel = _clamp(loc, vel)
             
-            print(loc)
+            # print(loc)
         
     return loc, vel
 
-def simulate_T(loc, vel, edges, T, sample_freq=10, interaction_strength=0.1):
+def simulate_T(loc, vel, edges, T, sample_freq=100, interaction_strength=0.1):
     _delta_T = 0.001
     _max_F = 0.1 / _delta_T
     
     n = len(edges)
     
-    print(loc, vel)
+    # print(loc, vel)
     
     assert T % sample_freq == 0
-    T_save = int(T / sample_freq - 1)
+    T_save = int(T / sample_freq)
     
     locs = np.zeros((T_save, 2, n))
     vels = np.zeros((T_save, 2, n))
@@ -171,7 +171,7 @@ def simulate_T(loc, vel, edges, T, sample_freq=10, interaction_strength=0.1):
     loc_next, vel_next = _clamp(loc, vel)
     locs[0, :, :], vels[0, :, :] = loc_next, vel_next
     
-    print(loc_next, vel_next)
+    # print(loc_next, vel_next)
         
     # disables division by zero warning, since I fix it with fill_diagonal
     with np.errstate(divide="ignore"):
@@ -200,16 +200,16 @@ def simulate_T(loc, vel, edges, T, sample_freq=10, interaction_strength=0.1):
 
         vel_next += _delta_T * F
         
-        counter = 1
+        counter = 0
         
         # run leapfrog (-sample_freq & counter=1 because we want to keep initial state, as opposed to original code)
         # we assume that the initial state is already in equilibrium
-        for i in range(1, T - sample_freq):
+        for i in range(0, T):
             loc_next += _delta_T * vel_next
             loc_next, vel_next = _clamp(loc_next, vel_next)
             
-            if i < 11:
-                print(loc_next, vel_next)
+            # if i < 11:
+                # print(loc_next, vel_next)
             
             if i % sample_freq == 0:
                 locs[counter, :, :], vels[counter, :, :] = loc_next, vel_next
@@ -242,12 +242,12 @@ def simulate_T(loc, vel, edges, T, sample_freq=10, interaction_strength=0.1):
     
     return locs, vels
 
-def simulate_T_tf(loc, vel, edges, T, sample_freq=10, interaction_strength=0.1):
+def simulate_T_tf(loc, vel, edges, T, sample_freq=100, interaction_strength=0.1):
     _delta_T = 0.001
     _max_F = 0.1 / _delta_T
     
     assert T % sample_freq == 0
-    T_save = int(T / sample_freq - 1)
+    T_save = int(T / sample_freq)
     
     # Prepare tensors to store results
     locs = tf.TensorArray(tf.float64, size=T_save)
@@ -271,7 +271,7 @@ def simulate_T_tf(loc, vel, edges, T, sample_freq=10, interaction_strength=0.1):
         return tf.clip_by_value(force, -_max_F, _max_F)
             
     # Simulation loop
-    for i in tf.range(1, T - sample_freq):
+    for i in tf.range(0, T):
         # Compute forces
         F = compute_forces(loc_next)
         
@@ -307,7 +307,7 @@ def test_equivalence_optimized():
                          [0., 1., 0., 0., 0.],
                          [0., 0., 1., 0., 0.],
                          [0., 0., 0., 0., 0.]])
-    T = 1000
+    T = 5000
     
     start_time = time.time()
     locs_np, vels_np = simulate_T(loc_np, vel_np, edges_np, T)
@@ -359,31 +359,3 @@ def test_equivalence_optimized():
 
 # Run the test
 test_equivalence_optimized()
-
-init [[1.77918574 2.7889536  1.95386064 2.39217124 3.43384957]
- [3.26104954 3.10140545 1.92869961 3.14338321 2.81237098]] [[0.52543559 0.70066658 0.62445966 0.39977748 0.95504668]
- [0.97607643 0.8133926  0.4929475  0.69573012 0.63860918]]
-eq clamp [[1.77918574 2.7889536  1.95386064 2.39217124 3.43384957]
- [3.26104954 3.10140545 1.92869961 3.14338321 2.81237098]] [[0.52543559 0.70066658 0.62445966 0.39977748 0.95504668]
- [0.97607643 0.8133926  0.4929475  0.69573012 0.63860918]]
-eq [[1.77971136 2.78965421 1.95448518 2.39257097 3.43480462]
- [3.26202546 3.1022187  1.92919267 3.14407882 2.81300959]] [[0.52561533 0.70060788 0.62454317 0.39973365 0.95504668]
- [0.97591546 0.81325062 0.49306477 0.69560865 0.63860918]]
-[[1.78023715 2.79035476 1.95510981 2.39297066 3.43575966]
- [3.26300121 3.10303181 1.92968586 3.14477431 2.8136482 ]]
-[[1.78076313 2.79105525 1.95573452 2.39337031 3.43671471]
- [3.2639768  3.10384478 1.93017916 3.14546967 2.81428681]]
-[[1.78128928 2.79175568 1.95635931 2.39376991 3.43766976]
- [3.26495224 3.1046576  1.93067257 3.14616492 2.81492542]]
-[[1.78181561 2.79245605 1.95698419 2.39416947 3.4386248 ]
- [3.26592751 3.10547028 1.93116611 3.14686004 2.81556403]]
-[[1.78234213 2.79315637 1.95760915 2.39456899 3.43957985]
- [3.26690262 3.10628282 1.93165976 3.14755504 2.81620264]]
-[[1.78286882 2.79385662 1.9582342  2.39496846 3.4405349 ]
- [3.26787756 3.10709522 1.93215353 3.14824992 2.81684124]]
-[[1.7833957  2.79455682 1.95885932 2.39536788 3.44148994]
- [3.26885235 3.10790747 1.93264741 3.14894468 2.81747985]]
-[[1.78392275 2.79525696 1.95948454 2.39576727 3.44244499]
- [3.26982697 3.10871959 1.93314142 3.14963931 2.81811846]]
-[[1.78444998 2.79595704 1.96010983 2.39616661 3.44340004]
- [3.27080144 3.10953156 1.93363554 3.15033383 2.81875707]]

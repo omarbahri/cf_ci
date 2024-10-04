@@ -6,6 +6,8 @@ Created on Thu May 16 15:35:28 2024
 @author: omar
 """
 
+#The difference between this and my_ts_dataset is that u and std are computed for the target ball only
+
 import numpy as np
 import os
 import sys
@@ -42,8 +44,6 @@ def _energy(loc, vel, edges, interaction_strength):
 # target_ball = int(sys.argv[1])
 target_ball = 0
 
-interaction_strength = 0.1
-
 train_size = ''
 valid_size = 200
 test_size = 200
@@ -56,6 +56,7 @@ else:
 # name = '_springs' + str(n_balls) + _s + '_uninfluenced2_oneconnect'
 # name = 'uninfluenced2/_springs5_uninfluenced2_inter0.5_s1000_oneconnect'
 name = str(sys.argv[1])
+interaction_strength = float(sys.argv[2])
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),'../..'))    
 output_dir = os.path.join(root_dir, 'cf_ci', 'scripts', 'data', name)
@@ -87,22 +88,20 @@ energy_test = _energy(loc_test, vel_test, edges_test, interaction_strength)
 
 print('energy_test', energy_test.shape)    
 
-# plt.hist(energy_train.reshape(-1), bins=50, edgecolor='k', alpha=0.7)
-
-u = np.mean(energy_train.reshape(-1))
-std = np.std(energy_train.reshape(-1))
-
-print(u)
-print(std)
-
-thres = u + std
-
 # Extract the final energies of the ball at index 0 for each simulation
 final_energies_0_train = energy_train[:, -1, target_ball]  # Extract final energies for the ball at index target_ball
 final_energies_0_valid = energy_valid[:, -1, target_ball]  # Extract final energies for the ball at index target_ball
 final_energies_0_test = energy_test[:, -1, target_ball]  # Extract final energies for the ball at index target_ball
 
-print('final_energies_0_test', final_energies_0_test.shape)    
+print('final_energies_0_test', final_energies_0_test.shape) 
+
+u = np.mean(final_energies_0_train.reshape(-1))
+std = np.std(final_energies_0_train.reshape(-1))
+
+print(u)
+print(std)
+
+thres = u + 2 * std   
 
 # Create the binary variable by comparing the final energies with the threshold
 final_energy_0_0_train = final_energies_0_train > thres
@@ -110,7 +109,6 @@ final_energy_0_0_valid = final_energies_0_valid > thres
 final_energy_0_0_test = final_energies_0_test > thres
 
 print('final_energy_0_0_test', final_energy_0_0_test.shape)    
-
 
 # Convert boolean array to integer (0 or 1)
 y_train = final_energy_0_0_train.astype(int)
@@ -130,7 +128,6 @@ loc_test = loc_test.transpose(0, 3, 2, 1).reshape(-1, 2 * n_balls, t_steps)
 
 print('loc_test', loc_test.shape)    
 
-
 # Concatenate along the new feature axis (should be axis=1)
 X_train = np.concatenate((loc_train, vel_train), axis=1)
 X_valid = np.concatenate((loc_valid, vel_valid), axis=1)
@@ -140,7 +137,7 @@ print('X_test', X_test.shape)
 
 
 dataset_path = os.path.abspath(os.path.join(os.path.dirname(__file__),'../../..',
-                                    'Datasets', 'ci', 'particles_spring', name))
+                                    'Datasets', 'ci', 'particles_spring', name + '_target_movement'))
 
 # sys.exit()
 

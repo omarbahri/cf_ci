@@ -14,3 +14,26 @@ CVAE uninfluenced2 0.0002
 
 1e-10 0
 1e-20 1
+
+
+************ After Summer *************
+
+
+If I have to get CFs for older experiments, correct naming to include T an sample_freq
+
+Now:
+_springs20_uninfluenced2_inter0.5_s1000_sf100_oneconnect_target_movement making bigger dataset
+
+Making datasets with noise: 
+     nohup__springs20_uninfluenced2_inter0.5_s1000_sf100_oneconnect_noisevar_0.1
+     nohup__springs20_uninfluenced2_inter5.0_l50000_s1000_sf100_oneconnect_noisevar_0.1
+     nohup__springs20_uninfluenced2_l50000_s1000_sf100_oneconnect_noisevar_0.1
+
+Getting cfs for:
+     _springs20_uninfluenced2_inter5.0_l50000_s1000_sf100_oneconnect_target_movement
+     _springs20_uninfluenced2_l50000_s1000_sf100_oneconnect_target_movement
+
+
+val_loss for overall_best?
+
+
