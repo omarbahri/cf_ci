@@ -1,0 +1,18 @@
+nohup: ignoring input
+Namespace(simulation='springs', num_train=2, num_valid=1, num_test=100, length=50000, sample_freq=100, n_balls=5, seed=42, datadir='data/uninfluenced2_test', temperature=5.0, temperature_dist=False, temperature_alpha=None, temperature_num_cats=None, undirected=False, fixed_particle=False, influencer_particle=False, confounder=False, uninfluenced_particle=True, fixed_connectivity=True, noise_var=0.0, length_test=50000)
+_springs5_uninfluenced2_inter5.0_l50000_s2_sf100_oneconnect
+Generating 2 training simulations
+[5;30;41mEdges are fixed to be: [0m
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 3.657060146331787
+Generating 100 test simulations
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 3.670468330383301

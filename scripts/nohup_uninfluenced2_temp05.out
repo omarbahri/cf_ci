@@ -1,0 +1,34 @@
+nohup: ignoring input
+Namespace(simulation='springs', num_train=1000, num_valid=100, num_test=100, length=5000, sample_freq=100, n_balls=5, seed=42, datadir='data/uninfluenced2', temperature=0.5, temperature_dist=False, temperature_alpha=None, temperature_num_cats=None, undirected=False, fixed_particle=False, influencer_particle=False, confounder=False, uninfluenced_particle=True, fixed_connectivity=True, noise_var=0.0, length_test=5000)
+_springs5_uninfluenced2_inter0.5_s1000_oneconnect
+Generating 1000 training simulations
+[5;30;41mEdges are fixed to be: [0m
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 0.3262946605682373
+Iter: 100, Simulation time: 0.32866621017456055
+Iter: 200, Simulation time: 0.33691883087158203
+Iter: 300, Simulation time: 0.33341050148010254
+Iter: 400, Simulation time: 0.35846686363220215
+Iter: 500, Simulation time: 0.32730674743652344
+Iter: 600, Simulation time: 0.3272840976715088
+Iter: 700, Simulation time: 0.32704639434814453
+Iter: 800, Simulation time: 0.3255629539489746
+Iter: 900, Simulation time: 0.3285949230194092
+Generating 100 validation simulations
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 0.33533358573913574
+Generating 100 test simulations
+[[0. 1. 1. 1. 0.]
+ [0. 0. 1. 1. 1.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
+Iter: 0, Simulation time: 0.3266611099243164
