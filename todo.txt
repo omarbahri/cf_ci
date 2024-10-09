@@ -19,8 +19,6 @@ CVAE uninfluenced2 0.0002
 ************ After Summer *************
 
 
-If I have to get CFs for older experiments, correct naming to include T an sample_freq
-
-0.02904435467262834 _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf2_oneconnect_noise_var0.1_target_movement
-0.06264591217041016 _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
-0.016379724237507144 _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
+getting cfs: 
+nohup ./counterfactual_ci_noise_class_particles_spring_resnet_i.sh _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement 1 200 5 0.1 0 1000 0 &> nohup_cf_ci_noise/_springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement_1.out &
+Problem with loading resnet
