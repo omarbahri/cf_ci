@@ -137,7 +137,7 @@ print('X_test', X_test.shape)
 
 
 dataset_path = os.path.abspath(os.path.join(os.path.dirname(__file__),'../../..',
-                                    'Datasets', 'ci', 'particles_spring', name + '_target_movement'))
+                'Datasets', 'ci', 'particles_spring', name + '_target_movement'))
 
 # sys.exit()
 

@@ -20,5 +20,47 @@ CVAE uninfluenced2 0.0002
 
 
 getting cfs: 
-nohup ./counterfactual_ci_noise_class_particles_spring_resnet_i.sh _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement 1 200 5 0.1 0 1000 0 &> nohup_cf_ci_noise/_springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement_1.out &
-Problem with loading resnet
+     nohup /data/Omar/cf/scripts/counterfactual_ci_noise_class_particles_spring_resnet_i.sh _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement 1 200 5 0 100 0 &> nohup_cf_ci_noise/
+     _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement_1.out &
+
+
+     _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
+
+
+     I think this one also has a good resnet:
+     _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
+
+     => If tuning of beta works on above (good eval_noise), check for good resnets in DNN_classification and get cfs
+
+
+
+=> other baselines... cfproto with kd-trees
+
+SEARCHING LR on tf28: more than below
+
+     0.016379724237507144 _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement
+     0.038353371633527394
+     _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
+     0.019481348721305688 _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
+
+     more than
+     0.01631827901116034
+     _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement
+     0.00954922763686520
+     _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
+     0.02904435467262834
+     _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
+
+
+
+     _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf2_oneconnect_noise_var0.1_target_movement
+     _springs5_size_10000_8_100_uninfluenced2_inter0.5_l1000_s10000_sf2_oneconnect_noise_var0.2_target_movement
+     _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf5_oneconnect_noise_var0.1_target_movement
+     _springs5_size_10000_8_100_uninfluenced2_inter1.0_s10000_sf10_oneconnect_noise_var0.1_target_movement
+     _springs5_size_10000_8_100_uninfluenced2_s10000_sf10_oneconnect_noise_var0.1_target_movement
+
+
+Seems like SDO and SOHO from helioviewer are aligned and all. Make sure through a couple of papers & by downloading images
+
+Claude: ask: if this code does what the previous one does? 
+             what's reference time in the previous code?
