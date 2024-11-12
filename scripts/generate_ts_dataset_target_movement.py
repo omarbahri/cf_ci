@@ -372,6 +372,18 @@ if __name__ == "__main__":
     
     print('y_test', y_test.shape)    
     
+    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),'../..'))
+    dataset_path = os.path.join(root_dir, 'cf_ci', 'data', 'particles_spring', suffix + '_target_movement')
+        
+    if target_ball != 0:
+        dataset_path = dataset_path + '_' + str(target_ball)
+        
+    if not os.path.exists(dataset_path):
+        os.makedirs(dataset_path)
+    
+    np.save(os.path.join(dataset_path, 'vel_train.npy'), vel_train)
+    np.save(os.path.join(dataset_path, 'loc_train.npy'), loc_train)
+    
     vel_train = vel_train.transpose(0, 3, 2, 1).reshape(-1, 2 * n_balls, t_steps)
     vel_valid = vel_valid.transpose(0, 3, 2, 1).reshape(-1, 2 * n_balls, t_steps)
     vel_test = vel_test.transpose(0, 3, 2, 1).reshape(-1, 2 * n_balls, t_steps)
@@ -390,15 +402,7 @@ if __name__ == "__main__":
     
     print('X_test', X_test.shape)    
 
-    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__),'../..'))
-    dataset_path = os.path.join(root_dir, 'cf_ci', 'data', 'particles_spring', suffix + '_target_movement')
-        
-    if target_ball != 0:
-        dataset_path = dataset_path + '_' + str(target_ball)
-        
-    if not os.path.exists(dataset_path):
-        os.makedirs(dataset_path)
-    
+
     np.save(os.path.join(dataset_path, 'X_train.npy'), X_train)
     np.save(os.path.join(dataset_path, 'y_train.npy'), y_train)
     np.save(os.path.join(dataset_path, 'X_valid.npy'), X_valid)
