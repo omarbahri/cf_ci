@@ -20,44 +20,40 @@ CVAE uninfluenced2 0.0002
 
 
 getting cfs: 
-     nohup /data/Omar/cf/scripts/counterfactual_ci_noise_class_particles_spring_resnet_i.sh _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement 1 200 5 0 100 0 &> nohup_cf_ci_noise/
-     _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement_1.out &
+     Train F1-score:  0.9906118217794607
+     Test F1-score:  0.9557007140239457 kept
+     nohup /data/Omar/cf/scripts/counterfactual_ci_noise_class_particles_spring_resnet_i.sh _springs5_size_10000_8_100_uninfluenced2_inter0.5_l1000_s10000_sf2_oneconnect_target_movement 1 200 5 0 100 0 &> nohup_cf_ci_noise/
+     _springs5_size_10000_8_100_uninfluenced2_inter0.5_l1000_s10000_sf2_oneconnect_target_movement_1.out &
 
+     Train F1-score:  0.9817065977993668
+     Test F1-score:  0.8884159852071478 kept?
+     _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf5_oneconnect_target_movement
 
-     _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
-
-
-     I think this one also has a good resnet:
-     _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
-
-     => If tuning of beta works on above (good eval_noise), check for good resnets in DNN_classification and get cfs
-
-
-
-=> other baselines... cfproto with kd-trees
-
-SEARCHING LR on tf28: more than below
-
-     0.016379724237507144 _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement
-     0.038353371633527394
-     _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
-     0.019481348721305688 _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
-
-     more than
-     0.01631827901116034
+     Train F1-score:  0.9846781758355838
+     Test F1-score:  0.9024309699112123 kept
      _springs5_size_10000_8_100_uninfluenced2_inter0.5_s10000_sf100_oneconnect_noise_var0.1_target_movement
-     0.00954922763686520
-     _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
-     0.02904435467262834
+     
+     Train F1-score:  0.97204851199736
+     Test F1-score:  0.8320665308596003 searching
      _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
 
+     Train F1-score:  0.951906785065373
+     Test F1-score:  0.8453608247422679 searching
+     _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
 
-
+     Train F1-score:  0.976498610559746
+     Test F1-score:  0.8765279664156067 kept
      _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf2_oneconnect_noise_var0.1_target_movement
+     
+     Train F1-score:  0.9750550119387611
+     Test F1-score:  0.8581761452276273 searching
      _springs5_size_10000_8_100_uninfluenced2_inter0.5_l1000_s10000_sf2_oneconnect_noise_var0.2_target_movement
-     _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf5_oneconnect_noise_var0.1_target_movement
+
+     Train F1-score:  0.9537459323068864
+     Test F1-score:  0.7552400872235325 searching
      _springs5_size_10000_8_100_uninfluenced2_inter1.0_s10000_sf10_oneconnect_noise_var0.1_target_movement
-     _springs5_size_10000_8_100_uninfluenced2_s10000_sf10_oneconnect_noise_var0.1_target_movement
+
+
 
 
 Seems like SDO and SOHO from helioviewer are aligned and all. Make sure through a couple of papers & by downloading images
