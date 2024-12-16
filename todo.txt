@@ -36,23 +36,47 @@ getting cfs:
      Train F1-score:  0.97204851199736
      Test F1-score:  0.8320665308596003 searching for cfs, searching ae
      _springs5_size_10000_8_100_uninfluenced2_l10000_s10000_sf100_oneconnect_noise_var0.1_target_movement
+     ###
+     Train F1-score:  0.9888695652173913
+     Test F1-score:  0.9802318149170725
+     ### Should get cfs between beta 12 and 16, searching for alibis
+
 
      Train F1-score:  0.951906785065373
      Test F1-score:  0.8453608247422679 searching ae 
      _springs5_size_10000_8_100_uninfluenced2_inter10.0_s10000_sf50_oneconnect_noise_var0.1_target_movement
+     ###
+     Train F1-score:  0.9655954032475143
+     Test F1-score:  0.9599775874489713
+     ### searching for alibis
+
 
      Train F1-score:  0.976498610559746
      Test F1-score:  0.8765279664156067 searching for cfs
      _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf2_oneconnect_noise_var0.1_target_movement
      
      Train F1-score:  0.9750550119387611
-     Test F1-score:  0.8581761452276273  resnet found, searching ae 
+     Test F1-score:  0.8581761452276273  resnet found, searching ae
      _springs5_size_10000_8_100_uninfluenced2_inter0.5_l1000_s10000_sf2_oneconnect_noise_var0.2_target_movement
+     ### 
+     Train F1-score:  0.9854015201293869
+     Test F1-score:  0.9491340064599811
+     ### no cfs?
 
      Train F1-score:  0.9537459323068864
      Test F1-score:  0.7552400872235325 resnet found
      _springs5_size_10000_8_100_uninfluenced2_inter1.0_s10000_sf10_oneconnect_noise_var0.1_target_movement
+     ###
+     Train F1-score:  0.9761292120447398
+     Test F1-score:  0.9474628299521912
+     ### no cfs?
 
+
+Use LLMs two write 
+CFs with cegp-kd and potentially cem and cegp-ae
+Result figures and tables
+SEM figures (time series...)
+Re-run AE search around a parameter that works with .transpose (it seems like the datasets for which I currently have CFs had their AEs trained with .reshape)
 
 
 
