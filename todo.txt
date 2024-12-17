@@ -39,7 +39,7 @@ getting cfs:
      ###
      Train F1-score:  0.9888695652173913
      Test F1-score:  0.9802318149170725
-     ### Should get cfs between beta 12 and 16, searching for alibis
+     ### Should get cfs between beta 12 and 16, searched for alibis
 
 
      Train F1-score:  0.951906785065373
@@ -54,6 +54,8 @@ getting cfs:
      Train F1-score:  0.976498610559746
      Test F1-score:  0.8765279664156067 searching for cfs
      _springs5_size_10000_8_100_uninfluenced2_l1000_s10000_sf2_oneconnect_noise_var0.1_target_movement
+     ###
+     searching for resnet
      
      Train F1-score:  0.9750550119387611
      Test F1-score:  0.8581761452276273  resnet found, searching ae
@@ -61,7 +63,7 @@ getting cfs:
      ### 
      Train F1-score:  0.9854015201293869
      Test F1-score:  0.9491340064599811
-     ### no cfs?
+     ### no cfs? Searching again for beta 8.0, 13.0
 
      Train F1-score:  0.9537459323068864
      Test F1-score:  0.7552400872235325 resnet found
@@ -69,7 +71,7 @@ getting cfs:
      ###
      Train F1-score:  0.9761292120447398
      Test F1-score:  0.9474628299521912
-     ### no cfs?
+     ### no cfs? Searching again for beta 8.0, 13.0
 
 
 Use LLMs two write 
